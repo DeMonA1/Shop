@@ -17,3 +17,10 @@ celery -A myshop worker -l info
 You can add Flower to monitor the asynchronous tasks that are executing with Celery
 
 celery -A myshop flower --basic-auth=username:password
+
+
+For implementation payment for our app, we have to choose the 
+payment gateway providers. You chose Stripe. Also you need to 
+register on the <https://www.stripe.com>.
+Next step, you have to create the account to process payments.
+3. <https://dashboard.stripe.com/test/apikeys>
