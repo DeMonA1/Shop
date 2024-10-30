@@ -18,9 +18,11 @@ You can add Flower to monitor the asynchronous tasks that are executing with Cel
 
 celery -A myshop flower --basic-auth=username:password
 
-
-For implementation payment for our app, we have to choose the 
+1. For implementation payment for our app, we have to choose the 
 payment gateway providers. You chose Stripe. Also you need to 
 register on the <https://www.stripe.com>.
-Next step, you have to create the account to process payments.
-3. <https://dashboard.stripe.com/test/apikeys>
+2. Next step, you have to create the account to process payments.
+3. Go to the link <https://dashboard.stripe.com/test/apikeys>
+and take publishable and secret keys to .env file inside root
+derictory
+4. Add STRIPE_PUBLISHABLE_KEY, STRIPE_SECRET_KEY, STRIPE_API_VERSION and STRIPE_API_VERSION = 'xxxx', which you can find using this link <https://docs.stripe.com/upgrades>, to the settings file.
