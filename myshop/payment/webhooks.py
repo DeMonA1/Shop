@@ -8,6 +8,9 @@ from orders.models import Order
 
 @csrf_exempt
 def stripe_webhook(request):
+    """
+    Stripe webhook to mark order as paid
+    """
     payload = request.body
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']
     event = None
