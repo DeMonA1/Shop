@@ -46,3 +46,9 @@ In order to run myshop app:
 2. Runserver
 3. Celery (cmd)
 4. Stripe webhook (cmd)
+
+In order to use common static file in our your Shop project, you need
+to add STATIC_ROOT constant to settings.py file of myshop project.
+Next, run the command, which copies all static files from your apps 
+defined in STATIC_ROOT directory:
+python manage.py collectstatic
