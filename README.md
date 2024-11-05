@@ -59,3 +59,25 @@ In this app we used Redis for the recommendation system. First of all for that, 
 REDIS_HOST = 'localhost'
 REDIS_PORT = 6379
 REDIS_DB = 1
+
+1. For internalization of your app, you should add LANGUAGE constant
+to settings.py file specifying languages which available for app. If this parameter is not defined, app will be available in all the languages that Django is translated into. Example:
+LANGUAGES = [
+    ('en', 'English'),
+    ('ru', 'Russian'),
+]
+2. After set up LANGUAGE_CODE = 'en' (the last parameter Django refers to)
+3. Add 'django.middleware.locale.LocaleMiddleware' to the MIDDLEWARE
+setting. Make sure that this middleware comes after SessionMiddleware 
+because LocaleMiddleware needs to use session data. It also has to be
+placed before CommonMiddleware because the latter needs an active
+language to resolve the requested URL.
+4. Create the following directory structure inside the main project 
+directory, next to the manage.py file:
+locale/
+    en/
+    ru/
+and add this to settings.py file: 
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]

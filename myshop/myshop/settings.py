@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -149,3 +150,12 @@ STATIC_ROOT = BASE_DIR / 'static'
 REDIS_HOST = 'localhost'
 REDIS_PORT = 6379
 REDIS_DB = 1
+
+LANGUAGES = [
+    ('en', 'English'),
+    ('ru', 'Russian'),
+]
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
