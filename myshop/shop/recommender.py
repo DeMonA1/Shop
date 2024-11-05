@@ -28,7 +28,7 @@ class Recommender:
                     # increment score for product purchased together
                     r.zincrby(self.get_product_key(product_id), 1, with_id)
                     
-    def suggest_products_for(self, products, max_results=6):
+    def suggest_products_for(self, products: Product, max_results=6):
         """
         Get suggested products and sort by order of appearance
         """
