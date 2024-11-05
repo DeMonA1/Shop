@@ -54,3 +54,8 @@ defined in STATIC_ROOT directory:
 python manage.py collectstatic
 
 EMAIL!!!!!!!!!!!!!!!!! from first project
+
+In this app we used Redis for the recommendation system. First of all for that, you have to add Redis settings to settings.py file:
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 1
