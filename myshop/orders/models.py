@@ -13,7 +13,7 @@ class Order(models.Model):
     last_name = models.CharField(_('last_name'), max_length=50)
     email = models.EmailField(_('email'))
     address = models.CharField(_('address'), max_length=250)
-    postal_code = models.CharField(-('postal_code'), max_length=20)
+    postal_code = models.CharField(_('postal_code'), max_length=20)
     city = models.CharField(_('city'), max_length=100)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
