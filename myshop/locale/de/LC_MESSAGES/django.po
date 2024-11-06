@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 #: myshop/settings.py:156
 msgid "English"
-msgstr "Englischsprachig"
+msgstr "Englisch"
 
 #: myshop/settings.py:157
 msgid "German"
