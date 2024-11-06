@@ -66,6 +66,7 @@ LANGUAGES = [
     ('en', 'English'),
     ('ru', 'Russian'),
 ]
+If you use gettext_lazy function (which frequently imported as '_'), the languages names will be translating only when they are accessed.
 2. After set up LANGUAGE_CODE = 'en' (the last parameter Django refers to)
 3. Add 'django.middleware.locale.LocaleMiddleware' to the MIDDLEWARE
 setting. Make sure that this middleware comes after SessionMiddleware 
@@ -81,3 +82,8 @@ and add this to settings.py file:
 LOCALE_PATHS = [
     BASE_DIR / 'locale',
 ]
+5. Run the following command (you will create .po files for each language):
+django-admin makemessages --all
+6. Fill msgstr in .po files with translations of msgid  
+7. Run following command:
+django-admin compilemessages

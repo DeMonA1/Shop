@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 from decouple import config
+from django.utils.translation import gettext_lazy as _
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -152,8 +153,8 @@ REDIS_PORT = 6379
 REDIS_DB = 1
 
 LANGUAGES = [
-    ('en', 'English'),
-    ('ru', 'Russian'),
+    ('en', _('English')),
+    ('de', _('German')),
 ]
 
 LOCALE_PATHS = [
