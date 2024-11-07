@@ -14,7 +14,7 @@
             <div class="cart">
                 {% with total_items=cart|length %}
                     {% if total_items > 0 %}
-                        {% transalte "Your cart" %}:
+                        {% translate "Your cart" %}:
                         <a href="{% url "cart:cart_detail" %}">
                             <!-- "count" to set a variable for counting objects to select right plural form -->
                             {% blocktranslate with total=cart.get_total_price count items=total_items %}
