@@ -1,21 +1,21 @@
 {% load i18n %}
 <html>
     <body>
-        <h1>{% transalte "My shop" %}</h1>
+        <h1>{% translate "My shop" %}</h1>
         <p>
-            {% transalte "Invoice no." %} {{ order.id }}<br>
+            {% translate "Invoice no." %} {{ order.id }}<br>
             <span class="secondary">
                 {{ order.created|date:"M d, Y" }}
             </span>
         </p>
-        <h3>{% transalte "Bill to" %}</h3>
+        <h3>{% translate "Bill to" %}</h3>
         <p>
             {{ order.first_name }}{{ order.last_name }}<br>
             {{ order.email }}<br>
             {{ order.address }}<br>
             {{ order.postal_code }}, {{ order.city }}
         </p>
-        <h3>{% transalte "Items bought" %}</h3>
+        <h3>{% translate "Items bought" %}</h3>
         <table>
             <thead>
                 <tr>
