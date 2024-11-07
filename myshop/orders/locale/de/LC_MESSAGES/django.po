@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-06 14:54+0300\n"
+"POT-Creation-Date: 2024-11-07 08:27+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: orders/models.py:12
 msgid "first_name"
 msgstr "Vorname"
@@ -33,6 +34,97 @@ msgstr "email"
 msgid "address"
 msgstr "Anschrift"
 
+#: orders/models.py:16
+msgid "postal code"
+msgstr "Postleitzahl"
+
 #: orders/models.py:17
 msgid "city"
 msgstr "Stadt"
+
+#: orders/templates/orders/order/create.html:4
+#: orders/templates/orders/order/create.html:7
+msgid "Checkout"
+msgstr "Kasse"
+
+#: orders/templates/orders/order/create.html:9
+msgid "Your order"
+msgstr "Ihre Bestellung"
+
+#: orders/templates/orders/order/create.html:19
+#, python-format
+msgid ""
+"\n"
+"                        \"%(code)s\" (%(discount)s%% off)\n"
+"                    "
+msgstr ""
+"\n"
+"                        \"%(code)s\" (%(discount)s%% Rabatt)\n"
+"                    "
+
+#: orders/templates/orders/order/create.html:26
+#: orders/templates/orders/order/pdf.html:57
+msgid "Total"
+msgstr "Gesamt"
+
+#: orders/templates/orders/order/create.html:30
+msgid "Place order"
+msgstr "Bestellung aufgeben"
+
+#: orders/templates/orders/order/pdf.html:4
+msgid "My shop"
+msgstr "Mein Geschäft"
+
+#: orders/templates/orders/order/pdf.html:6
+msgid "Invoice no."
+msgstr "Rechnungs-Nr."
+
+#: orders/templates/orders/order/pdf.html:11
+msgid "Bill to"
+msgstr "Gesetzesentwurf für"
+
+#: orders/templates/orders/order/pdf.html:18
+msgid "Items bought"
+msgstr "Gekaufte Artikel"
+
+#: orders/templates/orders/order/pdf.html:22
+msgid "Product"
+msgstr "Produkt"
+
+#: orders/templates/orders/order/pdf.html:23
+msgid "Price"
+msgstr "Preis"
+
+#: orders/templates/orders/order/pdf.html:24
+msgid "Quantity"
+msgstr "Menge"
+
+#: orders/templates/orders/order/pdf.html:25
+msgid "Cost"
+msgstr "Kosten"
+
+#: orders/templates/orders/order/pdf.html:40
+msgid "Subtotal"
+msgstr "Zwischensumme"
+
+#: orders/templates/orders/order/pdf.html:47
+#, python-format
+msgid ""
+"\n"
+"                                \"%(code)s\" (%(discount)s%% off)\n"
+"                            "
+msgstr ""
+"\n"
+"                                \"%(code)s\" (%(discount)s%% Rabatt)\n"
+"                            "
+
+#: orders/templates/orders/order/pdf.html:64
+msgid "Paid"
+msgstr "Bezahlt"
+
+#: orders/templates/orders/order/pdf.html:64
+msgid "Pending payment"
+msgstr "Ausstehende Zahlung"
+
+#~ msgid "create/"
+#~ msgstr "erstellen"
