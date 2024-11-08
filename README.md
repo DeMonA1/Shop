@@ -87,3 +87,8 @@ django-admin makemessages --all
 6. Fill msgstr in .po files with translations of msgid  
 7. Run following command:
 django-admin compilemessages
+
+When you will be use django-parler for models translation,
+change bases parameter on:
+bases=(parler.models.TranslatableModel, models.Model)
+(may be, this drawback will be correct in the future version)
