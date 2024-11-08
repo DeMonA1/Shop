@@ -21,3 +21,21 @@ r.suggest_products_for([black_tea])
 r.suggest_products_for([green_tea])
 r.suggest_products_for([vic_pot])
 r.suggest_products_for([plate])
+
+
+# using translations in QuerySets
+from shop.models import Product
+from django.utils.translation import activate
+activate('de')
+product=Product.objects.first()
+product.name
+# another way
+product=Product.objects.language('en').first()
+product.name # 'Green tea'
+# set another language for an object
+product.set_current_language('de')
+product.name # 'Grüner Tee'
+product.get_current_language() # 'de
+# we cna filter using the related translation objects with
+# translations__xxxx
+Product.objects.filter(translations__name="Green tea")
