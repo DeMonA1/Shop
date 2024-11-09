@@ -37,9 +37,21 @@ class Order(models.Model):
     def __str__(self):
         return f'Order {self.id}'
     
+    def get_total_weight(self):
+        total_weight = sum(item.product.weight * item.quantity 
+                           for item in self.items.all())
+        return total_weight
+        
+    def get_shipping_cost(self):
+        total_weight = self.get_total_weight()
+        weight_kg = Decimal(total_weight / 1000)
+        shipping_cost_per_kg = Decimal('1.00')
+        return (weight_kg * shipping_cost_per_kg).quantize(Decimal('0.01'))
+    
     def get_total_cost(self):
         total_cost = self.get_total_cost_before_discount()
-        return total_cost - self.get_discount()
+        shipping_cost = self.get_shipping_cost()
+        return total_cost - self.get_discount() + shipping_cost
     
     def get_stripe_url(self):
         if not self.stripe_id:
