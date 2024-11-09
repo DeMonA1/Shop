@@ -46,6 +46,7 @@ In order to run myshop app:
 2. Runserver
 3. Celery (cmd)
 4. Stripe webhook (cmd)
+5. Redis (docker)
 
 In order to use common static file in our your Shop project, you need
 to add STATIC_ROOT constant to settings.py file of myshop project.
@@ -92,3 +93,15 @@ When you will be use django-parler for models translation,
 change bases parameter on:
 bases=(parler.models.TranslatableModel, models.Model)
 (may be, this drawback will be correct in the future version)
+
+Note about localization.
+This feature don't appropriate for outputting JS or JSON, which
+has provide a machine-readable format. In order to on/off localization:
+{% load l10n %}
+{% localize on %}
+{{ value }}
+{% endlocalize %}
+{% localize off %}
+{{ value }}
+{% endlocalize %}
+OR use special filters: {{ value|localize }} {{ value|unlocalize }}
