@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-*^1lid1(4r4#-q3t3silgrjh1h_6n@$be^c6ov+$60bnkv)9*(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost']
 
 
 # Application definition
@@ -151,7 +151,7 @@ STRIPE_WEBHOOK_SECRET = config('STRIPE_WEBHOOK_SECRET')
 STATIC_ROOT = BASE_DIR / 'static'
 
 # Redis settings
-REDIS_HOST = 'localhost'
+REDIS_HOST = 'cache' # localhost without docker compose
 REDIS_PORT = 6379
 REDIS_DB = 1
 
@@ -171,3 +171,5 @@ PARLER_LANGUAGES = {
     'default': {'fallback': 'en',
                 'hide_untranslated': False}
 }
+
+CELERY_BROKER_URL = 'amqp://myuser:mypassword@rabbitmq:5672/'

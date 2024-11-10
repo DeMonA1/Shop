@@ -111,3 +111,7 @@ has provide a machine-readable format. In order to on/off localization:
 {{ value }}
 {% endlocalize %}
 OR use special filters: {{ value|localize }} {{ value|unlocalize }}
+
+
+CONTAINER.
+REDIS_HOST = 'cache' # localhost without docker compose

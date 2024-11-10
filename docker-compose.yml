@@ -1,0 +1,61 @@
+services:
+  web:
+    build: .
+    environment:
+      - STRIPE_PUBLISHABLE_KEY=${STRIPE_PUBLISHABLE_KEY}
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+      - STRIPE_WEBHOOK_SECRET=${STRIPE_WEBHOOK_SECRET}
+    volumes:
+      - .:/code
+    depends_on:
+      - cache
+      - rabbitmq
+
+  web_migrate:
+    extends:
+      service: web
+    command: python /code/myshop/manage.py migrate
+  
+  web_run:
+    extends:
+      service: web
+    command: python /code/myshop/manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    depends_on:
+      - web_migrate
+      - cache
+  
+  cache:
+    image: redis:latest
+    restart: always
+    volumes:
+      - ./data/cache:/data
+
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: myuser
+      RABBITMQ_DEFAULT_PASS: mypassword
+
+  stripe_listener:
+    image: stripe/stripe-cli
+    command: listen --forward-to web:8000/payment/webhook/
+    environment:
+      - STRIPE_API_KEY=${STRIPE_SECRET_KEY}
+    depends_on:
+      - web_run
+
+  celery_worker:
+    build: .
+    working_dir: /code/myshop
+    command: celery -A myshop.celery worker -l info
+    volumes:
+      - .:/code
+    depends_on:
+      - web
+      - cache
+      - rabbitmq
