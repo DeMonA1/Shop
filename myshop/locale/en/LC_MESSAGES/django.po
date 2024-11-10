@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-09 10:26+0300\n"
+"POT-Creation-Date: 2024-11-10 13:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,7 +64,7 @@ msgid ""
 msgstr ""
 
 #: cart/templates/cart/detail.html:67 payment/templates/payment/process.html:15
-#: payment/templates/payment/process.html:51
+#: payment/templates/payment/process.html:58
 msgid "Total"
 msgstr ""
 
@@ -157,7 +157,11 @@ msgid ""
 "                        "
 msgstr ""
 
-#: payment/templates/payment/process.html:57
+#: payment/templates/payment/process.html:51
+msgid "Shipping"
+msgstr ""
+
+#: payment/templates/payment/process.html:64
 msgid "Pay now"
 msgstr ""
 

@@ -36,7 +36,10 @@ download it from <https://github.com/stripe/stripe-cli/releases/latest>
 2. After installation, go with next command: 
 stripe login
 3. Run this command:
+!
+
 stripe listen --forward-to 127.0.0.1:8000/payment/webhook/
+
 4. Use the secre key which you got as STRIPE_WEBHOOK_SECRET in .env
 file.
 
@@ -54,8 +57,11 @@ Next, run the command, which copies all static files from your apps
 defined in STATIC_ROOT directory:
 python manage.py collectstatic
 
+
 EMAIL!!!!!!!!!!!!!!!!! from first project
 
+
+ docker run --it --name redis -p 6379:6379 redis
 In this app we used Redis for the recommendation system. First of all for that, you have to add Redis settings to settings.py file:
 REDIS_HOST = 'localhost'
 REDIS_PORT = 6379

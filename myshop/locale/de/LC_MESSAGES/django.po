@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-09 10:26+0300\n"
-"PO-Revision-Date: 2024-11-08 05:05+0000\n"
-"Last-Translator:   <example@mm.com>\n"
+"POT-Creation-Date: 2024-11-10 13:36+0300\n"
+"PO-Revision-Date: 2024-11-10 10:37+0000\n"
+"Last-Translator:   <admin@admin.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -28,11 +28,13 @@ msgstr "Menge"
 msgid "Your shopping cart"
 msgstr "Ihr Warenkorb"
 
-#: cart/templates/cart/detail.html:11 payment/templates/payment/process.html:11
+#: cart/templates/cart/detail.html:11
+#: payment/templates/payment/process.html:11
 msgid "Image"
 msgstr "Bild"
 
-#: cart/templates/cart/detail.html:12 payment/templates/payment/process.html:12
+#: cart/templates/cart/detail.html:12
+#: payment/templates/payment/process.html:12
 msgid "Product"
 msgstr "Produkt"
 
@@ -44,7 +46,8 @@ msgstr "Entfernen"
 msgid "Unit price"
 msgstr "Stückpreis"
 
-#: cart/templates/cart/detail.html:16 payment/templates/payment/process.html:13
+#: cart/templates/cart/detail.html:16
+#: payment/templates/payment/process.html:13
 msgid "Price"
 msgstr "Preis"
 
@@ -52,7 +55,8 @@ msgstr "Preis"
 msgid "Update"
 msgstr "Aktualisieren"
 
-#: cart/templates/cart/detail.html:50 payment/templates/payment/process.html:33
+#: cart/templates/cart/detail.html:50
+#: payment/templates/payment/process.html:33
 msgid "Subtotal"
 msgstr "Zwischensumme"
 
@@ -67,8 +71,9 @@ msgstr ""
 "                            \"%(code)s\" coupon (%(discount)s%% Rabatt)\n"
 "                        "
 
-#: cart/templates/cart/detail.html:67 payment/templates/payment/process.html:15
-#: payment/templates/payment/process.html:51
+#: cart/templates/cart/detail.html:67
+#: payment/templates/payment/process.html:15
+#: payment/templates/payment/process.html:58
 msgid "Total"
 msgstr "Gesamt"
 
@@ -164,7 +169,11 @@ msgstr ""
 "                            \"%(code)s\" (%(discount)s%% Rabatt)\n"
 "                        "
 
-#: payment/templates/payment/process.html:57
+#: payment/templates/payment/process.html:51
+msgid "Shipping"
+msgstr "Versand"
+
+#: payment/templates/payment/process.html:64
 msgid "Pay now"
 msgstr "Jetzt bezahlen"
 
@@ -186,7 +195,7 @@ msgstr "Mein Geschäft"
 
 #: shop/templates/shop/base.html:16
 msgid "Language"
-msgstr ""
+msgstr "Sprache"
 
 #: shop/templates/shop/base.html:32
 msgid "Your cart"
@@ -216,10 +225,8 @@ msgid "Your cart is empty."
 msgstr "Ihr Warenkorb ist leer."
 
 #: shop/templates/shop/product/detail.html:22
-#, fuzzy
-#| msgid "Your cart"
 msgid "Add to cart"
-msgstr "Einkaufswagen"
+msgstr "Zum Warenkorb hinzufügen"
 
 #: shop/templates/shop/product/list.html:5
 #: shop/templates/shop/product/list.html:23
