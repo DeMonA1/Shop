@@ -112,6 +112,9 @@ has provide a machine-readable format. In order to on/off localization:
 {% endlocalize %}
 OR use special filters: {{ value|localize }} {{ value|unlocalize }}
 
+You can access to rosetta application by URI:
+<http://127.0.0.1:8000/en/rosetta/>
+
 
 CONTAINER.
 REDIS_HOST = 'cache' # localhost without docker compose
