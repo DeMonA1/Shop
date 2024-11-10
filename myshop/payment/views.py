@@ -48,7 +48,8 @@ def payment_process(request):
             
         # create Stripe checkout session
         session = stripe.checkout.Session.create(**session_data)
-        request.session.pop('coupon_id')
+        if order.coupon:
+            request.session.pop('coupon_id')
         # redirect to Stripe payment form
         return redirect(session.url, code=303)
     else:
