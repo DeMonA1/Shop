@@ -13,7 +13,7 @@ You have to install Celery and RabbitMQ for executing asynchronous tasks. Celery
 docker run -it <--rm> --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:management
 ```
 > [!NOTE]
-> run web-based management user interface on port 15672
+> Run web-based management user interface on port 15672.
 > login/password: guest/guest; <http://localhost:15672/>
 
 
