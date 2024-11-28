@@ -14,6 +14,7 @@ docker run -it <--rm> --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:manag
 ```
 > [!NOTE]
 > Run web-based management user interface on port 15672.
+> 
 > login/password: guest/guest; <http://localhost:15672/>
 
 
