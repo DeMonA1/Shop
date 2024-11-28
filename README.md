@@ -29,7 +29,7 @@ celery -A myshop worker -l info
 > [!NOTE]
 > -A -> -app, -l => log-level to info (info messages).
 
-#### Flower
+### Celery[Flower]
 You can add Flower to monitor the asynchronous tasks that are executing with Celery
 
 celery -A myshop flower --basic-auth=username:password
