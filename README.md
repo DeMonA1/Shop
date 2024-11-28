@@ -1,6 +1,12 @@
 # Shop
 
+> [!TIP]
+> [Main Django commands](https://github.com/DeMonA1/MyBlog__Django/blob/main/README.md#diamonds-basic-django-commands)
+
+## Launch service
+```
 python manage.py runserver
+```
 
 You have to install Celery and RabbitMQ for executing asynchronous tasks. Celery is used as the Worker and RabbitMQ as the Message Broker:
 
