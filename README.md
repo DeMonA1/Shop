@@ -7,12 +7,12 @@
 In order to run myshop app:
 
 1. RabbitMQ (docker)
-2. ```
+2. Runserver:
+   ```
    python manage.py runserver
-   
-3. Celery (cmd)
-4. Stripe webhook (cmd)
-5. Redis (docker)
+4. Celery (cmd)
+5. Stripe webhook (cmd)
+6. Redis (docker)
 
 ## Necessary services
 
