@@ -68,6 +68,7 @@ brew install stripe/stripe-cli/stripe
 ```
 or, if you haven't brew,
 download it from <https://github.com/stripe/stripe-cli/releases/latest>.
+
 2. After installation, go with next command:
 ```
 stripe login
