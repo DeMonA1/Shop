@@ -6,19 +6,21 @@
 ## Launch service
 In order to run myshop app:
 
-1. [RabbitMQ (docker container)](#rabbitmq)
+1. [RabbitMQ (docker container)](#rabbitmq):
    ```
    docker run -it <--rm> --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:management
 2. Runserver:
    ```
    python manage.py runserver
-3. Celery (cmd)[Link text](#celery)
+3. [Celery (cmd)](#celery):
    ```
    celery -A myshop worker -l info
-4. Stripe webhook (cmd)[Link text](#stripe)
+4. [Stripe webhook (cmd)](#stripe):
    ```
    stripe listen --forward-to 127.0.0.1:8000/payment/webhook/
-6. Redis (docker container)[Link text](#redis)
+6. [Redis (docker container)](#redis):
+   ```
+    docker run --it --name redis -p 6379:6379 redis
    
 ## Necessary services
 
@@ -101,21 +103,23 @@ python manage.py collectstatic
 
 
 
-
-1. For internalization of your app, you should add LANGUAGE constant
-to settings.py file specifying languages which available for app. If this parameter is not defined, app will be available in all the languages that Django is translated into. Example:
+## Internalization and localization
+1. For internalization of your app, you should add ***LANGUAGE*** constant
+to ***settings.py*** file specifying languages which available for app. If this
+parameter is not defined, app will be available in all the languages that Django
+is translated into. Example:
 LANGUAGES = [
     ('en', 'English'),
     ('ru', 'Russian'),
 ]
 If you use gettext_lazy function (which frequently imported as '_'), the languages names will be translating only when they are accessed.
-2. After set up LANGUAGE_CODE = 'en' (the last parameter Django refers to)
-3. Add 'django.middleware.locale.LocaleMiddleware' to the MIDDLEWARE
+3. After set up LANGUAGE_CODE = 'en' (the last parameter Django refers to)
+4. Add 'django.middleware.locale.LocaleMiddleware' to the MIDDLEWARE
 setting. Make sure that this middleware comes after SessionMiddleware 
 because LocaleMiddleware needs to use session data. It also has to be
 placed before CommonMiddleware because the latter needs an active
 language to resolve the requested URL.
-4. Create the following directory structure inside the main project 
+5. Create the following directory structure inside the main project 
 directory, next to the manage.py file:
 locale/
     en/
@@ -124,10 +128,10 @@ and add this to settings.py file:
 LOCALE_PATHS = [
     BASE_DIR / 'locale',
 ]
-5. Run the following command (you will create .po files for each language):
+6. Run the following command (you will create .po files for each language):
 django-admin makemessages --all
-6. Fill msgstr in .po files with translations of msgid  
-7. Run following command:
+7. Fill msgstr in .po files with translations of msgid  
+8. Run following command:
 django-admin compilemessages
 
 When you will be use django-parler for models translation,
