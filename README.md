@@ -39,7 +39,6 @@ So following command to launch Celery:
 ```
 celery -A myshop worker -l info
 ```
-> [!NOTE]
 > -A -> -app, -l => log-level to info (info messages).
 
 ### Celery[Flower]
