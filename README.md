@@ -67,16 +67,16 @@ which you can find using this [link](https://docs.stripe.com/upgrades), to the *
 brew install stripe/stripe-cli/stripe
 ```
 or, if you haven't brew,
-download it from <https://github.com/stripe/stripe-cli/releases/latest>
-3. After installation, go with next command:
+download it from <https://github.com/stripe/stripe-cli/releases/latest>.
+2. After installation, go with next command:
 ```
 stripe login
 ```
-4. Run this command:
+3. Run this command:
 ```
 stripe listen --forward-to 127.0.0.1:8000/payment/webhook/
 ```
-5. Use the secret key, which you got as ***STRIPE_WEBHOOK_SECRET***
+4. Use the secret key, which you got as ***STRIPE_WEBHOOK_SECRET***
 in ***.env*** file.
 
 ### Redis
@@ -179,5 +179,5 @@ OR use special filters:
 {{ value|localize }} {{ value|unlocalize }}
 ```
 
-You can access to <ins>***rosetta***</ins> application by URI:
+You can access to <ins>***rosetta***</ins> application(translator) by URI:
 <http://127.0.0.1:8000/en/rosetta/>
