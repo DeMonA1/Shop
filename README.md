@@ -109,9 +109,13 @@ to ***settings.py*** file specifying languages which available for app. If this
 parameter is not defined, app will be available in all the languages that Django
 is translated into. Example:
 LANGUAGES = [
+
     ('en', 'English'),
+
     ('ru', 'Russian'),
+
 ]
+
 If you use gettext_lazy function (which frequently imported as '_'), the languages names will be translating only when they are accessed.
 3. After set up LANGUAGE_CODE = 'en' (the last parameter Django refers to)
 4. Add 'django.middleware.locale.LocaleMiddleware' to the MIDDLEWARE
