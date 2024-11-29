@@ -6,20 +6,19 @@
 ## Launch service
 In order to run myshop app:
 
-1. RabbitMQ (docker container):
+1. RabbitMQ (docker container)[Link text](#rabbitmq)
    ```
    docker run -it <--rm> --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:management
 2. Runserver:
    ```
    python manage.py runserver
-3. Celery (cmd):
+3. Celery (cmd)[Link text](#celery)
    ```
    celery -A myshop worker -l info
-4. Stripe webhook (cmd):
+4. Stripe webhook (cmd)[Link text](#stripe)
    ```
    stripe listen --forward-to 127.0.0.1:8000/payment/webhook/
-6. Redis (docker container):
-    ``` 
+6. Redis (docker container)[Link text](#redis)
    
 ## Necessary services
 
@@ -78,6 +77,17 @@ stripe listen --forward-to 127.0.0.1:8000/payment/webhook/
 5. Use the secret key, which you got as ***STRIPE_WEBHOOK_SECRET***
 in ***.env*** file.
 
+### Redis
+Run Redis container as follows:
+```
+ docker run --it --name redis -p 6379:6379 redis
+```
+In this app we used Redis for the recommendation system. First of all, to do this,
+you have to add Redis settings to ***settings.py*** file:
+- REDIS_HOST = 'localhost'
+- REDIS_PORT = 6379
+- REDIS_DB = 1
+
 ## About static files
 In order to use common static files in our your Shop project, you need
 to add ***STATIC_ROOT*** constant to ***settings.py*** file of myshop project.
@@ -90,11 +100,7 @@ python manage.py collectstatic
 ## [About e-mail](https://github.com/DeMonA1/MyBlog__Django/blob/main/README.md#dart-settings)
 
 
- docker run --it --name redis -p 6379:6379 redis
-In this app we used Redis for the recommendation system. First of all for that, you have to add Redis settings to settings.py file:
-REDIS_HOST = 'localhost'
-REDIS_PORT = 6379
-REDIS_DB = 1
+
 
 1. For internalization of your app, you should add LANGUAGE constant
 to settings.py file specifying languages which available for app. If this parameter is not defined, app will be available in all the languages that Django is translated into. Example:
