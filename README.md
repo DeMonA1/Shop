@@ -18,7 +18,7 @@ In order to run myshop app:
 4. [Stripe webhook (cmd)](#stripe):
    ```
    stripe listen --forward-to 127.0.0.1:8000/payment/webhook/
-6. [Redis (docker container)](#redis):
+5. [Redis (docker container)](#redis):
    ```
     docker run --it --name redis -p 6379:6379 redis
    
@@ -89,6 +89,8 @@ you have to add Redis settings to ***settings.py*** file:
 - REDIS_HOST = 'localhost'
 - REDIS_PORT = 6379
 - REDIS_DB = 1
+> [!CAUTION]
+> REDIS_HOST = 'cache' => localhost without docker compose
 
 ## About static files
 In order to use common static files in our your Shop project, you need
@@ -104,6 +106,7 @@ python manage.py collectstatic
 
 
 ## Internalization and localization
+### Internalization
 1. For internalization of your app, you should add ***LANGUAGE*** constant
 to ***settings.py*** file specifying languages which available for app. If this
 parameter is not defined, app will be available in all the languages that Django
@@ -114,48 +117,67 @@ LANGUAGES = [
     ('ru', 'Russian'),
 ]
 ```
-If you use gettext_lazy function (which frequently imported as '_'), the languages names will be translating only when they are accessed.
-3. After set up LANGUAGE_CODE = 'en' (the last parameter Django refers to)
-4. Add 'django.middleware.locale.LocaleMiddleware' to the MIDDLEWARE
-setting. Make sure that this middleware comes after SessionMiddleware 
-because LocaleMiddleware needs to use session data. It also has to be
-placed before CommonMiddleware because the latter needs an active
+If you use ***gettext_lazy*** function (which frequently imported as '_'), 
+the languages names will be translating only when they are accessed.
+2. After set up ***LANGUAGE_CODE = 'en'*** (the last parameter Django refers to)
+3. Add ***'django.middleware.locale.LocaleMiddleware'*** to the ***MIDDLEWARE***
+setting. Make sure that this middleware comes after ***SessionMiddleware*** 
+because ***LocaleMiddleware*** needs to use session data. It also has to be
+placed before ***CommonMiddleware*** because the latter needs an active
 language to resolve the requested URL.
-5. Create the following directory structure inside the main project 
+4. Create the following directory structure inside the main project 
 directory, next to the manage.py file:
+```
 locale/
     en/
     ru/
-and add this to settings.py file: 
+```
+and add this to ***settings.py*** file: 
+```
 LOCALE_PATHS = [
     BASE_DIR / 'locale',
 ]
-6. Run the following command (you will create .po files for each language):
+```
+5. Run the following command (you will create .po files for each language):
+```
 django-admin makemessages --all
-7. Fill msgstr in .po files with translations of msgid  
-8. Run following command:
+```
+6. Fill msgstr in .po files with translations of msgid  
+7. Run following command:
+```
 django-admin compilemessages
+```
 
-When you will be use django-parler for models translation,
-change bases parameter on:
+When you will be use ***django-parler*** for models translation,
+change the basic parameter on:
+```
 bases=(parler.models.TranslatableModel, models.Model)
-(may be, this drawback will be correct in the future version)
+```
+> (may be, this drawback will be correct in the future version)
 
-Note about localization.
+### Localization
 This feature don't appropriate for outputting JS or JSON, which
 has provide a machine-readable format. In order to on/off localization:
+- Header:
+```
 {% load l10n %}
+```
+- Localize on:
+```
 {% localize on %}
 {{ value }}
 {% endlocalize %}
+```
+- Localize off:
+```
 {% localize off %}
 {{ value }}
 {% endlocalize %}
-OR use special filters: {{ value|localize }} {{ value|unlocalize }}
+```
+OR use special filters: 
+```
+{{ value|localize }} {{ value|unlocalize }}
+```
 
-You can access to rosetta application by URI:
+You can access to <ins>***rosetta***</ins> application by URI:
 <http://127.0.0.1:8000/en/rosetta/>
-
-
-CONTAINER.
-REDIS_HOST = 'cache' # localhost without docker compose
