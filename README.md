@@ -6,14 +6,21 @@
 ## Launch service
 In order to run myshop app:
 
-1. RabbitMQ (docker)
+1. RabbitMQ (docker container):
+   ```
+   docker run -it <--rm> --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:management
 2. Runserver:
    ```
    python manage.py runserver
-4. Celery (cmd)
-5. Stripe webhook (cmd)
-6. Redis (docker)
-
+3. Celery (cmd):
+   ```
+   celery -A myshop worker -l info
+4. Stripe webhook (cmd):
+   ```
+   stripe listen --forward-to 127.0.0.1:8000/payment/webhook/
+6. Redis (docker container):
+    ``` 
+   
 ## Necessary services
 
 ### RabbitMQ
@@ -53,31 +60,35 @@ derictory.
 which you can find using this [link](https://docs.stripe.com/upgrades), to the ***settings*** file.
 5. Any credit card you can find by [link](https://docs.stripe.com/testing#international-cards>)
 
-To use stripe webhook:
+<ins>***To use stripe webhook***</ins>:
 
 1. You have to install stripe-cli via brew:
-brew install stripe/stripe-cli/stripe or, if you haven't brew,
+```
+brew install stripe/stripe-cli/stripe
+```
+or, if you haven't brew,
 download it from <https://github.com/stripe/stripe-cli/releases/latest>
-2. After installation, go with next command: 
+3. After installation, go with next command:
+```
 stripe login
-3. Run this command:
-!
-
+```
+4. Run this command:
+```
 stripe listen --forward-to 127.0.0.1:8000/payment/webhook/
+```
+5. Use the secret key, which you got as ***STRIPE_WEBHOOK_SECRET***
+in ***.env*** file.
 
-4. Use the secre key which you got as STRIPE_WEBHOOK_SECRET in .env
-file.
-
-
-
-In order to use common static file in our your Shop project, you need
-to add STATIC_ROOT constant to settings.py file of myshop project.
+## About static files
+In order to use common static files in our your Shop project, you need
+to add ***STATIC_ROOT*** constant to ***settings.py*** file of myshop project.
 Next, run the command, which copies all static files from your apps 
 defined in STATIC_ROOT directory:
+```
 python manage.py collectstatic
+```
 
-
-EMAIL!!!!!!!!!!!!!!!!! from first project
+## [About e-mail](https://github.com/DeMonA1/MyBlog__Django/blob/main/README.md#dart-settings)
 
 
  docker run --it --name redis -p 6379:6379 redis
