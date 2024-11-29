@@ -3,7 +3,7 @@
 > [!TIP]
 > [Main Django commands](https://github.com/DeMonA1/MyBlog__Django/blob/main/README.md#diamonds-basic-django-commands)
 
-## Launch service
+## :hammer_and_pick: Launch service
 In order to run myshop app:
 
 1. [RabbitMQ (docker container)](#rabbitmq):
@@ -22,9 +22,9 @@ In order to run myshop app:
    ```
     docker run --it --name redis -p 6379:6379 redis
    
-## Necessary services
+## :gear: Necessary services
 
-### RabbitMQ
+### :rabbit2: RabbitMQ
 You have to install Celery and RabbitMQ for executing asynchronous tasks. Celery is used as the Worker and RabbitMQ as the Message Broker:
 ```
 docker run -it <--rm> --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:management
@@ -34,7 +34,7 @@ docker run -it <--rm> --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:manag
 > 
 > login/password: guest/guest; <http://localhost:15672/>
 
-### Celery
+### :seedling: Celery
 To use Celery, you have to create celery config file such as ***celery.py***.
 So following command to launch Celery:
 ```
@@ -42,13 +42,13 @@ celery -A myshop worker -l info
 ```
 > -A -> -app, -l => log-level to info (info messages).
 
-### Celery[Flower]
+### :ear_of_rice: Celery[Flower]
 You can add Flower to monitor the asynchronous tasks that are executing with Celery
 ```
 celery -A myshop flower --basic-auth=username:password
 ```
 
-### Stripe
+### :scarf: Stripe
 1. For implementation payment for our app, we have to choose the 
 payment gateway providers. We chose Stripe. Also you need to 
 [register](https://www.stripe.com).
@@ -80,7 +80,7 @@ stripe listen --forward-to 127.0.0.1:8000/payment/webhook/
 4. Use the secret key, which you got as ***STRIPE_WEBHOOK_SECRET***
 in ***.env*** file.
 
-### Redis
+### :magnet: Redis
 Run Redis container as follows:
 ```
  docker run --it --name redis -p 6379:6379 redis
@@ -93,7 +93,7 @@ you have to add Redis settings to ***settings.py*** file:
 > [!CAUTION]
 > REDIS_HOST = 'cache' => localhost without docker compose
 
-## About static files
+## :open_file_folder: About static files
 In order to use common static files in our your Shop project, you need
 to add ***STATIC_ROOT*** constant to ***settings.py*** file of myshop project.
 Next, run the command, which copies all static files from your apps 
@@ -102,12 +102,12 @@ defined in STATIC_ROOT directory:
 python manage.py collectstatic
 ```
 
-## [About e-mail](https://github.com/DeMonA1/MyBlog__Django/blob/main/README.md#dart-settings)
+## :email: [About e-mail](https://github.com/DeMonA1/MyBlog__Django/blob/main/README.md#dart-settings)
 
 
 
-## Internalization and localization
-### Internalization
+## :scroll: Internalization and localization
+### :orange_book: Internalization
 1. For internalization of your app, you should add ***LANGUAGE*** constant
 to ***settings.py*** file specifying languages which available for app. If this
 parameter is not defined, app will be available in all the languages that Django
@@ -120,12 +120,15 @@ LANGUAGES = [
 ```
 If you use ***gettext_lazy*** function (which frequently imported as '_'), 
 the languages names will be translating only when they are accessed.
+
 2. After set up ***LANGUAGE_CODE = 'en'*** (the last parameter Django refers to)
+
 3. Add ***'django.middleware.locale.LocaleMiddleware'*** to the ***MIDDLEWARE***
 setting. Make sure that this middleware comes after ***SessionMiddleware*** 
 because ***LocaleMiddleware*** needs to use session data. It also has to be
 placed before ***CommonMiddleware*** because the latter needs an active
 language to resolve the requested URL.
+
 4. Create the following directory structure inside the main project 
 directory, next to the manage.py file:
 ```
@@ -139,11 +142,14 @@ LOCALE_PATHS = [
     BASE_DIR / 'locale',
 ]
 ```
+
 5. Run the following command (you will create .po files for each language):
 ```
 django-admin makemessages --all
 ```
+
 6. Fill msgstr in .po files with translations of msgid  
+
 7. Run following command:
 ```
 django-admin compilemessages
@@ -156,7 +162,7 @@ bases=(parler.models.TranslatableModel, models.Model)
 ```
 > (may be, this drawback will be correct in the future version)
 
-### Localization
+### :blue_book: Localization
 This feature don't appropriate for outputting JS or JSON, which
 has provide a machine-readable format. In order to on/off localization:
 - Header:
@@ -180,5 +186,5 @@ OR use special filters:
 {{ value|localize }} {{ value|unlocalize }}
 ```
 
-You can access to <ins>***rosetta***</ins> application(translator) by URI:
+:rosette: You can access to <ins>***rosetta***</ins> application(translator) by URI:
 <http://127.0.0.1:8000/en/rosetta/>
