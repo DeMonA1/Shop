@@ -4,9 +4,15 @@
 > [Main Django commands](https://github.com/DeMonA1/MyBlog__Django/blob/main/README.md#diamonds-basic-django-commands)
 
 ## Launch service
-```
-python manage.py runserver
-```
+In order to run myshop app:
+
+1. RabbitMQ (docker)
+2. ```
+   python manage.py runserver
+   
+3. Celery (cmd)
+4. Stripe webhook (cmd)
+5. Redis (docker)
 
 ## Necessary services
 
@@ -62,13 +68,7 @@ stripe listen --forward-to 127.0.0.1:8000/payment/webhook/
 4. Use the secre key which you got as STRIPE_WEBHOOK_SECRET in .env
 file.
 
-In order to run myshop app:
 
-1. RabbitMQ (docker)
-2. Runserver
-3. Celery (cmd)
-4. Stripe webhook (cmd)
-5. Redis (docker)
 
 In order to use common static file in our your Shop project, you need
 to add STATIC_ROOT constant to settings.py file of myshop project.
