@@ -6,7 +6,7 @@
 ## Launch service
 In order to run myshop app:
 
-1. RabbitMQ (docker container)[Link text](#rabbitmq)
+1. [RabbitMQ (docker container)](#rabbitmq)
    ```
    docker run -it <--rm> --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:management
 2. Runserver:
